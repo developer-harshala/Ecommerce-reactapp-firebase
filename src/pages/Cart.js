@@ -74,12 +74,12 @@ const Cart = () => {
             {payNow && (
               <div className='w-full mt-6 flex items-center justify-center'>
                 <StripeCheckout
-                  stripeKey='pk_test_51N34nqSJddsVjCoAjgIMRDdmSrCpu0wx1mrjiqi4inswGlIfFrPorkLRhr5Q4lmuAIoDfKohUotwUDVEBH4YU1kz003xtmI0oi'
-                  name='HG Online Shopping'
+                  stripeKey='pk_test_51LXpmzBcfNkwYgIPXd3qq3e2m5JY0pvhaNZG7KSCklYpVyTCVGQATRH8tTWxDSYOnRTT5gxOjRVpUZmOWUEHnTxD00uxobBHkc'
+                  name='Bazar Online Shopping'
                   amount={totalAmt * 100}
-                  label='Make payment'
+                  label='Pay to bazar'
                   description={`Your Payment amount is $${totalAmt}`}
-                  // token={payment}
+                  token={payment}
                   email={userInfo.email}
                 />
               </div>
