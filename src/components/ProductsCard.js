@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { BsArrowRight } from 'react-icons/bs'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../redux/onlineShopSlice'
-// import { ToastContainer, toast } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify'
 
 const ProductsCard = ({ product }) => {
   const dispatch = useDispatch()
@@ -45,19 +45,17 @@ const ProductsCard = ({ product }) => {
               <p className='font-semibold'>${product.price}</p>
             </div>
             <p
-              onClick={
-                () =>
-                  dispatch(
-                    addToCart({
-                      _id: product._id,
-                      title: product.title,
-                      image: product.image,
-                      price: product.price,
-                      quantity: 1,
-                      description: product.description,
-                    })
-                  )
-                // & toast.success(`${product.title} is added`)
+              onClick={() =>
+                dispatch(
+                  addToCart({
+                    _id: product._id,
+                    title: product.title,
+                    image: product.image,
+                    price: product.price,
+                    quantity: 1,
+                    description: product.description,
+                  })
+                ) & toast.success(`${product.title} is added`)
               }
               className='absolute z-20 w-[100px] text-gray-500 hover:text-gray-900 flex items-center gap-1 top-0 transform -translate-x-32 group-hover:translate-x-0 transition-transform cursor-pointer duration-500'
             >
@@ -79,7 +77,7 @@ const ProductsCard = ({ product }) => {
           </p>
         )}
       </div>
-      {/* <ToastContainer
+      <ToastContainer
         position='top-left'
         autoClose={3000}
         hideProgressBar={false}
@@ -90,7 +88,7 @@ const ProductsCard = ({ product }) => {
         draggable
         pauseOnHover
         theme='dark'
-      /> */}
+      />
     </div>
   )
 }

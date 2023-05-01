@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { MdOutlineStar } from 'react-icons/md'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../redux/onlineShopSlice'
-// import { ToastContainer, toast } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify'
 
 const Product = () => {
   const dispatch = useDispatch()
@@ -79,19 +79,17 @@ const Product = () => {
                 </div>
               </div>
               <button
-                onClick={
-                  () =>
-                    dispatch(
-                      addToCart({
-                        _id: details._id,
-                        title: details.title,
-                        image: details.image,
-                        price: details.price,
-                        quantity: baseQty,
-                        description: details.description,
-                      })
-                    )
-                  //   & toast.success(`${details.title} is added`)
+                onClick={() =>
+                  dispatch(
+                    addToCart({
+                      _id: details._id,
+                      title: details.title,
+                      image: details.image,
+                      price: details.price,
+                      quantity: baseQty,
+                      description: details.description,
+                    })
+                  ) & toast.success(`${details.title} is added`)
                 }
                 className='bg-black text-white py-3 px-6 active:bg-gray-800'
               >
@@ -104,7 +102,7 @@ const Product = () => {
             </p>
           </div>
         </div>
-        {/* <ToastContainer
+        <ToastContainer
           position='top-left'
           autoClose={2000}
           hideProgressBar={false}
@@ -115,7 +113,7 @@ const Product = () => {
           draggable
           pauseOnHover
           theme='dark'
-        /> */}
+        />
       </div>
     </>
   )
